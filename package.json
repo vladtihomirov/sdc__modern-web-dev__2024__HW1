@@ -1,13 +1,21 @@
 {
   "name": "sdc__modern-web-dev__2024",
-  "private": true,
-  "version": "0.0.0",
+  "description": "SDC - Modern Web Development 2024: Homework #1",
+  "private": false,
+  "version": "2024.1.0",
+  "license": "MIT",
+  "author": "Vlad Tihomirov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladtihomirov/sdc__modern-web-dev__2024"
+  },
+  "homepage": "https://ehuithub.com/",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "serve:development": "vite",
+    "build:development": "tsc -b && vite build",
+    "preview:development": "vite preview",
+    "lint:all": "eslint ."
   },
   "dependencies": {
     "react": "^18.3.1",
