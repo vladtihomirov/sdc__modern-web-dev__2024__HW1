@@ -1,11 +1,19 @@
 import './ListView.css'
 import {DataService} from "../../services/DataService.ts";
+import {useEffect, useState} from "react";
+import {Item} from "../../@types/Item.ts";
 
 function ListView() {
-    const items = DataService.getArbitraryListOfItems();
+    const [items, setItems] = useState<Item[] | null>(null);
+
+    useEffect(() => {
+        DataService.getArbitraryListOfItems().then(items => {
+            return setItems(items);
+        });
+    }, []);
 
     return (<>
-        {items.map(item => (
+        {items && items.map(item => (
             <div className="item" key={item.id}>
                 <img src={item.image} alt={item.name} />
                 <div className="item-info">
