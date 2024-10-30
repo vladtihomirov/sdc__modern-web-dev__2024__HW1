@@ -1,9 +1,9 @@
 import { Component } from 'react';
 
-export class HomePage extends Component {
+export class ContactPage extends Component {
   render() {
     return (
-      <h1>Home page</h1>
+      <h1>Contact page</h1>
     );
   }
 }

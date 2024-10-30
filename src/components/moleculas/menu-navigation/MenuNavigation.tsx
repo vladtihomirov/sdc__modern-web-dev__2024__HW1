@@ -1,30 +1,26 @@
 import styles from './MenuNavigation.module.css';
-import {useState} from "react";
+import {observer} from "mobx-react-lite";
+import {navigationStore} from "../../../stores/NavigationStore.ts";
+import {useUrl} from "crossroad";
+import {useEffect} from "react";
 
-type MenuNavigationItem = {
-  name: string;
-  url: string;
-}
+export const MenuNavigation = observer(() => {
+  const [url] = useUrl();
 
-export const MenuNavigation = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
-  const menuItems: MenuNavigationItem[] = [
-    {name: 'Home', url: '/home'},
-    {name: 'Menu', url: '/menu'},
-    {name: 'Company', url: '/company'},
-    {name: 'Login', url: '/auth/login'},
-  ];
+  useEffect(() => {
+    navigationStore.setActiveItem(url.path);
+  }, [url]);
 
   return (
     <nav className={styles.menu}>{
-      menuItems.map((item) => (
+      navigationStore.navigationItems.map((item) => (
         <a key={item.name}
            href={item.url}
-           onClick={() => setCurrentPath(item.url)}
-           className={[styles.menu__item, item.url === currentPath ? styles.menu__item__active : null].join(' ')}>
+           onClick={() => navigationStore.setActiveItem(item.base)}
+           className={[styles.menu__item, item.isActive ? styles.menu__item__active : null].join(' ')}>
           {item.name}
         </a>
       ))
     }</nav>
   );
-}
+});

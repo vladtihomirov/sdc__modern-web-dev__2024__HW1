@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class BaseService {
-  private static readonly baseUrl: string = '/data/';
+  private static readonly baseUrl: string = 'https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/';
 
   protected static get<T>(url: string): Promise<T> {
     return axios.get<T>(this.baseUrl + url).then(response => response.data);

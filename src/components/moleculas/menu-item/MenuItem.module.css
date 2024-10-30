@@ -55,6 +55,13 @@
     line-height: 24px;
     text-align: left;
     color: var(--text-secondaty);
+    height: 48px;
+    width: 350px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menuItem__main__actions {
