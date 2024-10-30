@@ -1,0 +1,28 @@
+*[data-hint] {
+    position: relative;
+}
+
+*[data-hint]::after {
+    content: attr(data-hint);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--background-white);
+    border: var(--border);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    transition-delay: 0.5s;
+    z-index: 1000;
+}
+
+*[data-hint]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 4px;
+}
