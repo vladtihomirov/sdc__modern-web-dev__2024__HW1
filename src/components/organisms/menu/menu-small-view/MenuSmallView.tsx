@@ -2,14 +2,23 @@ import {Tabs} from '../../../moleculas/tabs/Tabs';
 import styles from './MenuSmallView.module.css';
 import {useEffect, useState} from "react";
 import {IMenuItem} from "../../../../@types/IMenuItem.ts";
-import {MenuService} from "../../../../services/MenuService.ts";
 import {MenuGrid} from "../menu-grid/MenuGrid.tsx";
 import {Button} from "../../../atoms/button/Button.tsx";
+import {useGetData, useJSONData} from "../../../../hooks/fetch.ts";
 
 export const MenuSmallView = () => {
+  const {
+    data: menuItems,
+    error: menuItemsError,
+    loading: menuItemsLoading
+  } = useGetData<IMenuItem[]>('meals', []);
+  const {
+    data: categories,
+    error: categoriesError,
+    loading: categoriesLoading
+  } = useJSONData<string[]>('categories', []);
+
   const pageSize = 6;
-  const [categories, setCategories] = useState<string[]>([]);
-  const [menuItems, setMenuItems] = useState<IMenuItem[]>([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState<IMenuItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [page, setPage] = useState(1);
@@ -20,7 +29,7 @@ export const MenuSmallView = () => {
   }
 
   const selectCategory = (tab: string) => {
-    if(tab !== selectedCategory) {
+    if (tab !== selectedCategory) {
       setSelectedCategory(tab);
       setPage(1);
       setCanSeeMore(true);
@@ -36,15 +45,6 @@ export const MenuSmallView = () => {
   }
 
   useEffect(() => {
-    MenuService.getCategories().then((fetchedCategories) => {
-      setCategories(fetchedCategories);
-      setSelectedCategory(fetchedCategories[0]);
-      filterMenu(fetchedCategories[0]);
-    });
-    MenuService.getMenuItems().then((menuItems) => setMenuItems(menuItems));
-  }, []);
-
-  useEffect(() => {
     if (selectedCategory) {
       setFilteredMenuItems(menuItems
         .filter(item => item.category === selectedCategory)
@@ -53,11 +53,27 @@ export const MenuSmallView = () => {
     }
   }, [menuItems, page, selectedCategory]);
 
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+      setSelectedCategory(categories[0]);
+    }
+  }, [categories]);
+
   return (
     <div className={styles.menuSmallView}>
-      <Tabs initialTabs={categories} selectedTab={selectedCategory} onSelect={selectCategory}/>
-      <MenuGrid menuItems={filteredMenuItems}/>
-      {canSeeMore && <Button onClick={onSeeMore}>See more</Button>}
+      {categoriesLoading && <p>Loading categories...</p>}
+      {categoriesError && <p>Error loading categories: {categoriesError}</p>}
+      {categories && !categoriesError && !categoriesLoading &&
+          <Tabs initialTabs={categories} selectedTab={selectedCategory} onSelect={selectCategory}/>
+      }
+      {menuItemsLoading && <p>Loading menu items...</p>}
+      {menuItemsError && <p>Error loading menu items: {menuItemsError}</p>}
+      {menuItems && !menuItemsError && !menuItemsLoading &&
+          <>
+              <MenuGrid menuItems={filteredMenuItems}/>
+            {canSeeMore && <Button onClick={onSeeMore}>See more</Button>}
+          </>
+      }
     </div>
   )
 }
