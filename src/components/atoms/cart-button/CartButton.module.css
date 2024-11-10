@@ -1,0 +1,9 @@
+.cartButton {
+    width: 55px;
+    height: 55px;
+    border-radius: 4px;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,33 @@
+.baseTemplate {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.baseWrapper {
+    overflow-y: auto;
+}
+
+.background {
+    height: calc(100% - 100px);
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    right: 0;
+    top: 100px;
+}
+
+.backgroundSlide {
+    width: 150vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: top right;
+    transform: rotate(-3deg);
+    background: var(--background-primary-light);
+}
