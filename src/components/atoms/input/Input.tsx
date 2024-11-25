@@ -1,3 +1,4 @@
+import React, {Component} from 'react';
 import styles from './Input.module.css';
 
 type InputProps = {
@@ -5,15 +6,27 @@ type InputProps = {
   onChange: (value: string | number) => void;
   type?: 'text' | 'number';
   className?: string;
-}
+};
 
-export const Input = ({value, onChange, type = 'text', className}: InputProps) => {
-  return (
-    <input
-      className={[styles.input, className].join(' ')}
-      type={type}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-    />
-  )
+export class Input extends Component<InputProps> {
+  static defaultProps = {
+    type: 'text',
+  };
+
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.props.onChange(event.target.value);
+  };
+
+  render() {
+    const {value, type, className} = this.props;
+
+    return (
+      <input
+        className={[styles.input, className].join(' ')}
+        type={type}
+        value={value}
+        onChange={this.handleChange}
+      />
+    );
+  }
 }
