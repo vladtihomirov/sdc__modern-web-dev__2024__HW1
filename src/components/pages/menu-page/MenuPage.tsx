@@ -1,5 +1,5 @@
 import {MenuSmallView} from '../../organisms/menu/menu-small-view/MenuSmallView';
-import styles from './MenuPage.module.css';
+import styles from './MenuPage.module.scss';
 
 export const MenuPage = () => {
   return (

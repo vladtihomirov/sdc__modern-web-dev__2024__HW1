@@ -1,4 +1,4 @@
-import styles from './MenuGrid.module.css';
+import styles from './MenuGrid.module.scss';
 import {IMenuItem} from "../../../../@types/IMenuItem.ts";
 import {MenuItem} from "../../../moleculas/menu-item/MenuItem.tsx";
 

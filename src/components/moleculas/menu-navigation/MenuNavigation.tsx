@@ -1,4 +1,4 @@
-import styles from './MenuNavigation.module.css';
+import styles from './MenuNavigation.module.scss';
 import {observer} from "mobx-react-lite";
 import {useActiveMenuItem} from "../../../hooks/useActiveMenuItem.ts";
 import {INavigationItem} from "../../../@types/INavigationItem.ts";

@@ -1,4 +1,4 @@
-import styles from './MenuItem.module.css';
+import styles from './MenuItem.module.scss';
 import {IMenuItem} from "../../../@types/IMenuItem.ts";
 import {Button} from "../../atoms/button/Button.tsx";
 import {Input} from "../../atoms/input/Input.tsx";

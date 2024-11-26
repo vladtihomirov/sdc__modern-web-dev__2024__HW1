@@ -1,4 +1,4 @@
-import style from './Footer.module.css';
+import style from './Footer.module.scss';
 import {EPages} from "../../../@types/EPages.ts";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";

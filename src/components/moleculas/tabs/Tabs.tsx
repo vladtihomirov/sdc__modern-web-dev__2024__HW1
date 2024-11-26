@@ -1,4 +1,4 @@
-import styles from './Tabs.module.css';
+import './Tabs.scss';
 import {useEffect, useState} from "react";
 import {Button} from "../../atoms/button/Button.tsx";
 
@@ -26,7 +26,7 @@ export const Tabs = ({initialTabs = [], selectedTab, onSelect}: TabsProps) => {
   }
 
   return (
-    <div className={styles.tabs}>
+    <div className="tabs">
       {tabs.map(tab => (
         <Button key={tab.name} onClick={() => onClick(tab)} appearance={tab.isActive ? 'primary' : 'alt'}>{tab.name}</Button>
       ))}

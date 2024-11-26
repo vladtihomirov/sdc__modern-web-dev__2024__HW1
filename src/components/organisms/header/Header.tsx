@@ -1,4 +1,4 @@
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import {Logo} from "../../moleculas/logo/Logo.tsx";
 import {MenuNavigation} from "../../moleculas/menu-navigation/MenuNavigation.tsx";
 import {CartButton} from "../../atoms/cart-button/CartButton.tsx";

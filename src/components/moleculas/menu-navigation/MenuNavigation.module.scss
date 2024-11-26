@@ -1,0 +1,20 @@
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &__item {
+        padding: 20px 16px;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: color .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--primary);
+        }
+
+        &__active {
+            color: var(--primary);
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import styles from './CartButton.module.css';
+import styles from './CartButton.module.scss';
 import {observer} from "mobx-react-lite";
 import {cartStore} from "../../../stores/CartStore.ts";
 import {EPages} from "../../../@types/EPages.ts";

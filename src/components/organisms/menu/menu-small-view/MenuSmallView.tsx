@@ -1,5 +1,5 @@
 import {Tabs} from '../../../moleculas/tabs/Tabs';
-import styles from './MenuSmallView.module.css';
+import styles from './MenuSmallView.module.scss';
 import {useEffect, useState} from "react";
 import {IMenuItem} from "../../../../@types/IMenuItem.ts";
 import {MenuService} from "../../../../services/MenuService.ts";

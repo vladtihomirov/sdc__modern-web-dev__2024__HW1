@@ -1,4 +1,4 @@
-import styles from './BaseTemplate.module.css';
+import styles from './BaseTemplate.module.scss';
 import React from "react";
 import {Header} from "../../organisms/header/Header.tsx";
 import {Footer} from "../../organisms/footer/Footer.tsx";
