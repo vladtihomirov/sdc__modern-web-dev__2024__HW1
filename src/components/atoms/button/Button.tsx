@@ -1,5 +1,6 @@
 import styles from './Button.module.css';
 import React from "react";
+import classNames from "classnames";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -12,10 +13,12 @@ export const Button = ({
                          children,
                          onClick,
                          appearance = 'primary',
-                         size = 'large'
+                         size = 'large',
+                         ...props
                        }: ButtonProps) => {
+  const className = classNames(styles.button, styles['button__' + appearance], styles['button__' + size]);
   return (
-    <button className={[styles.button, styles['button__' + appearance], styles['button__' + size]].join(' ')} onClick={onClick}>
+    <button className={className} onClick={onClick} {...props}>
       {children}
     </button>
   )
