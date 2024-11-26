@@ -1,28 +1,32 @@
 import styles from './MenuNavigation.module.css';
 import {observer} from "mobx-react-lite";
-import {navigationStore} from "../../../stores/NavigationStore.ts";
-import {useEffect} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useActiveMenuItem} from "../../../hooks/useActiveMenuItem.ts";
+import {INavigationItem} from "../../../@types/INavigationItem.ts";
+import {EPages} from "../../../@types/EPages.ts";
+import {useNavigate} from "react-router-dom";
+import classNames from "classnames";
+
+const navigationItems: INavigationItem[] = [
+  {name: 'Home', url: EPages.HOME, base: EPages.HOME},
+  {name: 'Menu', url: EPages.MENU, base: EPages.MENU},
+  {name: 'Company', url: EPages.COMPANY, base: EPages.COMPANY},
+  {name: 'Login', url: EPages.LOGIN, base: EPages.LOGIN},
+];
 
 export const MenuNavigation = observer(() => {
-  const {pathname} = useLocation();
+  const activeMenuItem = useActiveMenuItem(navigationItems);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    navigationStore.setActiveItem(pathname);
-  }, [pathname]);
-
   const onClick = (base: string) => {
-    navigationStore.setActiveItem(base);
     navigate(base);
   }
 
   return (
     <nav className={styles.menu}>{
-      navigationStore.navigationItems.map((item) => (
+      navigationItems.map((item) => (
         <a key={item.name}
            onClick={() => onClick(item.base)}
-           className={[styles.menu__item, item.isActive ? styles.menu__item__active : null].join(' ')}>
+           className={classNames(styles.menu__item, item.url === activeMenuItem?.url ? styles.menu__item__active : '')}>
           {item.name}
         </a>
       ))

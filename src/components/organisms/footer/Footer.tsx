@@ -1,9 +1,11 @@
 import style from './Footer.module.css';
 import {EPages} from "../../../@types/EPages.ts";
 import {observer} from "mobx-react-lite";
-import {navigationStore} from "../../../stores/NavigationStore.ts";
+import {useNavigate} from "react-router-dom";
 
 export const Footer = observer(() => {
+  const navigate = useNavigate();
+
   return (
     <div className={style.footer}>
       <div className={['wrapper', style.footer__wrapper].join(' ')}>
@@ -18,10 +20,10 @@ export const Footer = observer(() => {
           <div className={style.footer__menu__columns}>
             <div className={style.footer__menu__columns__item}>
               <span className={style.footer__menu__columns__item__title}>company</span>
-              <a href={EPages.HOME} onClick={() => navigationStore.setActiveItem(EPages.HOME)} className={style.footer__menu__columns__item__row}>Home</a>
-              <a href={EPages.ORDER} onClick={() => navigationStore.setActiveItem(EPages.ORDER)} className={style.footer__menu__columns__item__row}>Order</a>
-              <a href={EPages.FAQ} onClick={() => navigationStore.setActiveItem(EPages.FAQ)} className={style.footer__menu__columns__item__row}>FAQ</a>
-              <a href={EPages.CONTACT} onClick={() => navigationStore.setActiveItem(EPages.CONTACT)} className={style.footer__menu__columns__item__row}>Contact</a>
+              <a href={EPages.HOME} onClick={() => navigate(EPages.HOME)} className={style.footer__menu__columns__item__row}>Home</a>
+              <a href={EPages.ORDER} onClick={() => navigate(EPages.ORDER)} className={style.footer__menu__columns__item__row}>Order</a>
+              <a href={EPages.FAQ} onClick={() => navigate(EPages.FAQ)} className={style.footer__menu__columns__item__row}>FAQ</a>
+              <a href={EPages.CONTACT} onClick={() => navigate(EPages.CONTACT)} className={style.footer__menu__columns__item__row}>Contact</a>
             </div>
             <div className={style.footer__menu__columns__item}>
               <span className={style.footer__menu__columns__item__title}>TEMPLATE</span>
