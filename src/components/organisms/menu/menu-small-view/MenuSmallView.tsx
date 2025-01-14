@@ -16,14 +16,15 @@ export const MenuSmallView = () => {
   const [canSeeMore, setCanSeeMore] = useState(true);
 
   const filterMenu = (tab: string) => {
-    setFilteredMenuItems(menuItems.filter(item => item.category === tab));
+    const items = menuItems.filter(item => item.category === tab)
+    setFilteredMenuItems(items);
+    setCanSeeMore(items.length > pageSize);
   }
 
   const selectCategory = (tab: string) => {
     if(tab !== selectedCategory) {
       setSelectedCategory(tab);
       setPage(1);
-      setCanSeeMore(true);
       filterMenu(tab);
     }
   }
