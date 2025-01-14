@@ -55,7 +55,7 @@ export const MenuSmallView = () => {
 
   return (
     <div className={styles.menuSmallView}>
-      <Tabs initialTabs={categories} selectedTab={selectedCategory} onSelect={selectCategory}/>
+      <Tabs tabs={categories} selectedTab={selectedCategory} onSelect={selectCategory}/>
       <MenuGrid menuItems={filteredMenuItems}/>
       {canSeeMore && <Button onClick={onSeeMore}>See more</Button>}
     </div>
