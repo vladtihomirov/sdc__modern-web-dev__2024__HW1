@@ -15,6 +15,7 @@ function App() {
   return (
     <BaseTemplate>
       <Routes>
+        <Route index path="/" element={<Navigate to={EPages.HOME}/>}/>
         <Route index path={EPages.HOME} element={<HomePage/>}/>
         <Route path={EPages.MENU} element={<MenuPage/>}/>
         <Route path={EPages.COMPANY} element={<CompanyPage/>}/>

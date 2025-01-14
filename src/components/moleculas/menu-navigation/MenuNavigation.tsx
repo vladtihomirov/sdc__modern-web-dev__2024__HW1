@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 import {useActiveMenuItem} from "../../../hooks/useActiveMenuItem.ts";
 import {INavigationItem} from "../../../@types/INavigationItem.ts";
 import {EPages} from "../../../@types/EPages.ts";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import classNames from "classnames";
 
 const navigationItems: INavigationItem[] = [
@@ -15,20 +15,15 @@ const navigationItems: INavigationItem[] = [
 
 export const MenuNavigation = observer(() => {
   const activeMenuItem = useActiveMenuItem(navigationItems);
-  const navigate = useNavigate();
-
-  const onClick = (base: string) => {
-    navigate(base);
-  }
 
   return (
     <nav className={styles.menu}>{
       navigationItems.map((item) => (
-        <a key={item.name}
-           onClick={() => onClick(item.base)}
-           className={classNames(styles.menu__item, item.url === activeMenuItem?.url ? styles.menu__item__active : '')}>
+        <Link key={item.name}
+              to={item.base}
+              className={classNames(styles.menu__item, item.url === activeMenuItem?.url ? styles.menu__item__active : '')}>
           {item.name}
-        </a>
+        </Link>
       ))
     }</nav>
   );
