@@ -1,19 +1,24 @@
 import styles from './Input.module.scss';
+import {InputHTMLAttributes} from "react";
 
 type InputProps = {
   value: string | number;
-  onChange: (value: string | number) => void;
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'email' | 'password';
   className?: string;
 }
 
-export const Input = ({value, onChange, type = 'text', className}: InputProps) => {
+export const Input = ({
+                        value,
+                        type = 'text',
+                        className,
+                        ...props
+                      }: InputProps & InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <input
       className={[styles.input, className].join(' ')}
       type={type}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      {...props}
     />
   )
 }

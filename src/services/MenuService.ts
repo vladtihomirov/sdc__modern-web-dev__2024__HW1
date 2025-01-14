@@ -3,12 +3,12 @@ import {IMenuItem} from "../@types/IMenuItem.ts";
 
 export class MenuService extends BaseService {
   public static useMenuItems = (initialValue: IMenuItem[] = []) => {
-    return this.useFetch<IMenuItem[], IMenuItem[]>('meals', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }, initialValue);
+      return this.useFetch<IMenuItem[], IMenuItem[]>('meals', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }, initialValue);
   }
 
   public static useCategories = (initialValue: string[] = []) => {

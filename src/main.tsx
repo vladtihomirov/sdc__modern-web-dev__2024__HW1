@@ -6,11 +6,14 @@ import './styles/pallete.css'
 import './styles/hint.css'
 import App from "./App.tsx";
 import {BrowserRouter} from "react-router-dom";
+import {AuthProvider} from "./providers/AuthProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
+  <StrictMode>
+    <AuthProvider>
       <BrowserRouter>
         <App/>
       </BrowserRouter>
-    </StrictMode>,
+    </AuthProvider>
+  </StrictMode>,
 )
