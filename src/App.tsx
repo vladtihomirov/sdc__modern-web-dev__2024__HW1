@@ -1,5 +1,4 @@
 import './App.css'
-import {Route, Switch} from "crossroad";
 import {MenuPage} from "./components/pages/menu-page/MenuPage.tsx";
 import {HomePage} from "./components/pages/home-page/HomePage.tsx";
 import {CompanyPage} from "./components/pages/company-page/CompanyPage.tsx";
@@ -10,20 +9,23 @@ import {ContactPage} from "./components/pages/contact-page/ContactPage.tsx";
 import {EPages} from "./@types/EPages.ts";
 import {NotFoundPage} from "./components/pages/not-found-page/NotFoundPage.tsx";
 import {OrderPage} from "./components/pages/order-page/OrderPage.tsx";
+import {Navigate, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
     <BaseTemplate>
-      <Switch redirect={EPages.NOT_FOUND}>
-        <Route path={EPages.HOME} component={HomePage}/>
-        <Route path={EPages.MENU} component={MenuPage}/>
-        <Route path={EPages.COMPANY} component={CompanyPage}/>
-        <Route path={EPages.LOGIN} component={LoginPage}/>
-        <Route path={EPages.FAQ} component={FAQPage}/>
-        <Route path={EPages.CONTACT} component={ContactPage}/>
-        <Route path={EPages.ORDER} component={OrderPage}/>
-        <Route component={NotFoundPage}/>
-      </Switch>
+      <Routes>
+        <Route index path="/" element={<Navigate to={EPages.HOME}/>}/>
+        <Route index path={EPages.HOME} element={<HomePage/>}/>
+        <Route path={EPages.MENU} element={<MenuPage/>}/>
+        <Route path={EPages.COMPANY} element={<CompanyPage/>}/>
+        <Route path={EPages.LOGIN} element={<LoginPage/>}/>
+        <Route path={EPages.FAQ} element={<FAQPage/>}/>
+        <Route path={EPages.CONTACT} element={<ContactPage/>}/>
+        <Route path={EPages.ORDER} element={<OrderPage/>}/>
+        <Route path={EPages.NOT_FOUND} element={<NotFoundPage/>}/>
+        <Route path="*" element={<Navigate to={EPages.NOT_FOUND} replace/>}/>
+      </Routes>
     </BaseTemplate>
   )
 }

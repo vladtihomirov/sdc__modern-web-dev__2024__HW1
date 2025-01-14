@@ -1,0 +1,48 @@
+.button {
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+    border: 1px solid transparent;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: 400;
+
+    &__primary {
+        background-color: var(--primary);
+        color: var(--text-white);
+
+        &:hover {
+            background-color: var(--primary-hover);
+        }
+
+        &:active {
+            background-color: var(--primary-active);
+        }
+    }
+
+
+    &__alt {
+        background-color: var(--background-white);
+        color: var(--text-black);
+        border: var(--border);
+    }
+
+    &__large {
+        padding: 16px 40px;
+        height: 52px;
+    }
+
+    &__medium {
+        padding: 9px 25px;
+        height: 45px;
+    }
+
+    &__small {
+        padding: 8px 20px;
+        height: 40px;
+    }
+}
+
+
