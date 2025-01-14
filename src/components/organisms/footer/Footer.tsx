@@ -2,6 +2,10 @@ import style from './Footer.module.scss';
 import {EPages} from "../../../@types/EPages.ts";
 import {observer} from "mobx-react-lite";
 import {Link, useNavigate} from "react-router-dom";
+import logoImage from '../../../../public/logo.svg';
+import instagramImage from '../../../../public/icons/instagram.svg';
+import xImage from '../../../../public/icons/x.svg';
+import youtubeImage from '../../../../public/icons/youtube.svg';
 
 export const Footer = observer(() => {
   const navigate = useNavigate();
@@ -11,7 +15,7 @@ export const Footer = observer(() => {
       <div className={['wrapper', style.footer__wrapper].join(' ')}>
         <div className={style.footer__menu}>
           <div className={style.footer__menu__logo}>
-            <img src={'/logo.svg'} alt="logo" width={40} height={51}/>
+            <img src={logoImage} alt="logo" width={40} height={51}/>
             <p className={style.footer__menu__logo__slogan}>
               Takeaway & Delivery template<br/>
               for small - medium businesses.
@@ -47,13 +51,13 @@ export const Footer = observer(() => {
           </div>
           <div className={style.footer__subFooter__socials}>
             <div className={style.footer__subFooter__socials__item}>
-              <img src="/icons/instagram.svg" alt="instagram"/>
+              <img src={instagramImage} alt="instagram"/>
             </div>
             <div className={style.footer__subFooter__socials__item}>
-              <img src="/icons/x.svg" alt="x"/>
+              <img src={xImage} alt="x"/>
             </div>
             <div className={style.footer__subFooter__socials__item}>
-              <img src="/icons/youtube.svg" alt="Youtube"/>
+              <img src={youtubeImage} alt="Youtube"/>
             </div>
           </div>
         </div>
