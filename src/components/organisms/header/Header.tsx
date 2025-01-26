@@ -30,7 +30,7 @@ export const Header = () => {
         <Logo/>
         <div className={styles.header__navigation}>
           <MenuNavigation/>
-          {user && (<div className={styles.header__navigation__user}>
+          {user?.uid && (<div className={styles.header__navigation__user}>
             <UserBadge/>
             <CartButton/>
           </div>)}

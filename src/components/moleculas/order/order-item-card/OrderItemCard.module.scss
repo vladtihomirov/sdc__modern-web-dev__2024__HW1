@@ -1,0 +1,35 @@
+.orderItemCard {
+  border: var(--border-secondary);
+  background: var(--background-white);
+  width: 100%;
+  padding: 40px 26px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: stretch;
+
+  &__image {
+      width: 120px;
+      height: 120px;
+  }
+
+  &__title {
+    flex: 1;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    color: var(--text-black);
+  }
+
+  &__price {
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--primary);
+  }
+}

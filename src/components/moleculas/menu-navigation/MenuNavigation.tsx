@@ -30,7 +30,7 @@ export const MenuNavigation = () => {
         ))
       }
       {
-        !user &&
+        !user?.uid &&
           <NavLink
               to={EPages.LOGIN}
               className={({ isActive }) =>
