@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {UserBadge} from "../../moleculas/user-badge/UserBadge.tsx";
 import {useSelector} from "react-redux";
 import {userSelector} from "../../../slices/AuthSlice.ts";
+import {ThemeSwitch} from "../../atoms/theme-switch/ThemeSwitch.tsx";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -30,6 +31,7 @@ export const Header = () => {
         <Logo/>
         <div className={styles.header__navigation}>
           <MenuNavigation/>
+          <ThemeSwitch/>
           {user?.uid && (<div className={styles.header__navigation__user}>
             <UserBadge/>
             <CartButton/>

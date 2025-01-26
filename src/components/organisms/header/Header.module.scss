@@ -3,7 +3,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #fff;
+    background-color: var(--text-white);
     padding: 20px 0;
     transition: box-shadow 0.3s ease-in-out,
                 padding 0.1s ease-in-out;
