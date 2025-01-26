@@ -3,17 +3,19 @@ import {IMenuItem} from "../../../@types/IMenuItem.ts";
 import {Button} from "../../atoms/button/Button.tsx";
 import {Input} from "../../atoms/input/Input.tsx";
 import {useState} from "react";
-import {cartStore} from "../../../stores/CartStore.ts";
+import {useDispatch} from "react-redux";
+import {addItem} from "../../../slices/CartSlice.ts";
 
 export type MenuItemProps = {
   item: IMenuItem;
 }
 
 export const MenuItem = ({item}: MenuItemProps) => {
-  const [count, setCount] = useState(1)
+  const dispatch = useDispatch();
+  const [count, setCount] = useState(1);
 
   const onAddToCart = () => {
-    cartStore.addItem({count, item});
+    dispatch(addItem({count, item}));
   }
 
   return (
