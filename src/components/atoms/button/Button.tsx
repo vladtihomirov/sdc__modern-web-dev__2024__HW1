@@ -1,5 +1,5 @@
 import styles from './Button.module.scss';
-import React from "react";
+import React, {ButtonHTMLAttributes} from "react";
 import classNames from "classnames";
 
 type ButtonProps = {
@@ -14,11 +14,12 @@ export const Button = ({
                          onClick,
                          appearance = 'primary',
                          size = 'large',
+                         type = 'button',
                          ...props
-                       }: ButtonProps) => {
-  const className = classNames(styles.button, styles['button__' + appearance], styles['button__' + size]);
+                       }: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const className = classNames(styles.button, styles['button__' + appearance], styles['button__' + size], props.className);
   return (
-    <button className={className} onClick={onClick} {...props}>
+    <button {...props} className={className} onClick={onClick} type={type}>
       {children}
     </button>
   )

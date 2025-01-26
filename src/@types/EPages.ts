@@ -6,5 +6,6 @@ export enum EPages {
   MENU = '/menu',
   COMPANY = '/company',
   ORDER = '/order',
+  ORDER_PLACED = '/order/placed',
   LOGIN = '/auth/login',
 }

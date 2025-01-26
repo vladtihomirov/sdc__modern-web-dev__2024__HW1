@@ -1,0 +1,17 @@
+.orderForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
+
+  &__empty {
+    color: var(--text-black);
+  }
+
+  &__street, &__house {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

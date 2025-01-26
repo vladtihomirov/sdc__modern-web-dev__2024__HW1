@@ -1,0 +1,78 @@
+.loginPage {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  padding: 155px 0 0 0;
+  position: relative;
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 55px;
+    letter-spacing: 1.8px;
+    text-align: center;
+    color: var(--primary);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 695px;
+    padding: 35px 70px;
+    border: 1px solid #35B8BE26;
+    gap: 25px;
+    background: var(--background-white);
+
+    &__formField {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+
+      label {
+        width: 100px;
+        font-family: Inter, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.6px;
+      }
+
+      input {
+        flex: 1;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+
+      &__separator {
+        width: 80%;
+        height: 1px;
+        background: var(--text-gray);
+      }
+
+      &__github {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+      }
+    }
+
+    &__error {
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        color: var(--red);
+    }
+  }
+}
