@@ -4,11 +4,12 @@ import {MenuNavigation} from "../../moleculas/menu-navigation/MenuNavigation.tsx
 import {CartButton} from "../../atoms/cart-button/CartButton.tsx";
 import {useEffect, useState} from "react";
 import {UserBadge} from "../../moleculas/user-badge/UserBadge.tsx";
-import {useUser} from "../../../hooks/useUser.ts";
+import {useSelector} from "react-redux";
+import {userSelector} from "../../../slices/AuthSlice.ts";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const user = useUser();
+  const user = useSelector(userSelector);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +30,7 @@ export const Header = () => {
         <Logo/>
         <div className={styles.header__navigation}>
           <MenuNavigation/>
-          {user.info && (<div className={styles.header__navigation__user}>
+          {user && (<div className={styles.header__navigation__user}>
             <UserBadge/>
             <CartButton/>
           </div>)}

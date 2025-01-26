@@ -1,11 +1,9 @@
 import styles from './MenuNavigation.module.scss';
-import {observer} from "mobx-react-lite";
-import {useActiveMenuItem} from "../../../hooks/useActiveMenuItem.ts";
 import {INavigationItem} from "../../../@types/INavigationItem.ts";
 import {EPages} from "../../../@types/EPages.ts";
-import {Link} from "react-router-dom";
-import classNames from "classnames";
-import {useUser} from "../../../hooks/useUser.ts";
+import {NavLink} from "react-router-dom";
+import {userSelector} from "../../../slices/AuthSlice.ts";
+import {useSelector} from "react-redux";
 
 const navigationItems: INavigationItem[] = [
   {name: 'Home', url: EPages.HOME, base: EPages.HOME},
@@ -13,29 +11,35 @@ const navigationItems: INavigationItem[] = [
   {name: 'Company', url: EPages.COMPANY, base: EPages.COMPANY},
 ];
 
-export const MenuNavigation = observer(() => {
-  const activeMenuItem = useActiveMenuItem(navigationItems);
-  const user = useUser();
+export const MenuNavigation = () => {
+  const user = useSelector(userSelector)
 
-  console.log(user);
   return (
     <nav className={styles.menu}>
       {
         navigationItems.map((item) => (
-          <Link key={item.name}
-                to={item.base}
-                className={classNames(styles.menu__item, item.url === activeMenuItem?.url ? styles.menu__item__active : '')}>
+          <NavLink
+            key={item.name}
+            to={item.base}
+            className={({ isActive }) =>
+              `${styles.menu__item} ${isActive ? styles.menu__item__active : ""}`
+            }
+          >
             {item.name}
-          </Link>
+          </NavLink>
         ))
       }
       {
-        !user.info &&
-          <Link to={EPages.LOGIN}
-                className={classNames(styles.menu__item, EPages.LOGIN === activeMenuItem?.url ? styles.menu__item__active : '')}>
+        !user &&
+          <NavLink
+              to={EPages.LOGIN}
+              className={({ isActive }) =>
+                `${styles.menu__item} ${isActive ? styles.menu__item__active : ""}`
+              }
+          >
               Login
-          </Link>
+          </NavLink>
       }
     </nav>
   );
-});
+};

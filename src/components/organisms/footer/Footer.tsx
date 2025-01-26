@@ -1,13 +1,12 @@
 import style from './Footer.module.scss';
 import {EPages} from "../../../@types/EPages.ts";
-import {observer} from "mobx-react-lite";
 import {Link, useNavigate} from "react-router-dom";
 import logoImage from '../../../../public/logo.svg';
 import instagramImage from '../../../../public/icons/instagram.svg';
 import xImage from '../../../../public/icons/x.svg';
 import youtubeImage from '../../../../public/icons/youtube.svg';
 
-export const Footer = observer(() => {
+export const Footer = () => {
   const navigate = useNavigate();
 
   return (
@@ -64,4 +63,4 @@ export const Footer = observer(() => {
       </div>
     </div>
   )
-});
+};

@@ -4,20 +4,27 @@ import {auth, githubProvider} from "../../../../../firebase.ts";
 import styles from './LoginPage.module.scss';
 import {Button} from "../../../atoms/button/Button.tsx";
 import {Input} from "../../../atoms/input/Input.tsx";
-import {useUser} from "../../../../hooks/useUser.ts";
 import {useNavigate} from "react-router-dom";
 import {EPages} from "../../../../@types/EPages.ts";
 import githubIcon from '../../../../../public/icons/github.svg';
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../../../store.ts";
+import {saveUser} from "../../../../slices/AuthSlice.ts";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("test@gmail.com");
   const [password, setPassword] = useState("test12345");
   const [error, setError] = useState("");
-  const authUser = useUser();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const login = (user: User) => {
-    authUser.login(user);
+  const handleAfterLogin = (user: User) => {
+    dispatch(saveUser({
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+    }));
     navigate(EPages.HOME);
   }
 
@@ -26,7 +33,7 @@ export const LoginPage = () => {
     setError("");
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      login(user.user);
+      handleAfterLogin(user.user);
     } catch (err) {
       setError((err as Error).message);
     }
@@ -36,7 +43,7 @@ export const LoginPage = () => {
     setError("");
     try {
       const user = await signInWithPopup(auth, githubProvider);
-      login(user.user);
+      handleAfterLogin(user.user);
     } catch (err) {
       setError((err as Error).message);
     }

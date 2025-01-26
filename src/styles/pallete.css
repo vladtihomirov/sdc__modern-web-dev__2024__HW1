@@ -17,4 +17,25 @@
     --border-hover: 1px solid #617283;
 
     --red: #d53a3a;
+
+    .theme-dark {
+        --text-primary: #28224B;
+        --text-secondaty: #546285;
+        --text-white: #FFFFFF;
+        --text-black: #222222;
+        --text-gray: #e4e4e4;
+        --text-dark-black: #08090A;
+
+        --primary: #35B8BE;
+        --primary-hover: #309ea3;
+        --primary-active: #257c81;
+
+        --background-white: #FFFFFF;
+        --background-primary-light: #f5fbfc;
+
+        --border: 1px solid #61728333;
+        --border-hover: 1px solid #617283;
+
+        --red: #d53a3a;
+    }
 }
