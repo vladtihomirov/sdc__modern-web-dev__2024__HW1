@@ -16,7 +16,7 @@ When(/^I press button "([^"]*)"$/, async function ({page}) {
 });
 
 When(/^I go to the (\/[a-zA-Z0-9-/]*) page$/, async function ({page}, path: string) {
-  await page.goto(`${baseURL}${path}`, {waitUntil: 'networkidle'});
+  await page.goto(`${baseURL}${path}`);
 });
 
 When(/^I reduce first product in the cart$/, async function ({page}) {

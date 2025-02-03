@@ -4,11 +4,9 @@ import {expect} from "playwright/test";
 
 const {Then} = createBdd(test);
 
-Then(/^The product quantity in the cart should be \d$/, function ({ page }, count: number) {
+Then(/^The product quantity in the cart should be (\d)$/, async function ({ page }, count: number) {
   const cartButton: Locator = page.locator('.cart-button-number').first();
-  return cartButton.innerText().then((text) => {
-    expect(text).toBe(count.toString());
-  });
+  expect(await cartButton.textContent()).toBe(count);
 });
 
 Then(/^I should see the (\/[a-zA-Z0-9-/]*) page$/, async function ({page}, path: string) {

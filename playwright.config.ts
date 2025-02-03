@@ -7,6 +7,7 @@ export default defineConfig({
     outputDir: "./.features-gen/hedwig",
     paths: [
       "./tests/cart/cart.e2e.feature",
+      "./tests/cart/cart.no-auth.e2e.feature",
     ],
     require: [
       "./tests/cart/cart.e2e.when.ts",

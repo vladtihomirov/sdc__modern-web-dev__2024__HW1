@@ -25,4 +25,4 @@ Feature:
     When I add first product to the cart
     Then The product quantity in the cart should be 1
     When I reduce first product in the cart
-    Then The product quantity in the cart should be 2
+    Then The product quantity in the cart should be 0
