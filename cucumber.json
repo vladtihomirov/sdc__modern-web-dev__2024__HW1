@@ -1,0 +1,11 @@
+{
+  "default": {
+    "require": [
+      "tests/**.ts"
+    ],
+    "format": [
+      "@cucumber/pretty-formatter"
+    ],
+    "publish": false
+  }
+}

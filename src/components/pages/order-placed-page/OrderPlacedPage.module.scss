@@ -1,0 +1,19 @@
+.orderPlacedPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 140px 0;
+  gap: 40px;
+
+  &__title {
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 55px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: var(--primary);
+  }
+}

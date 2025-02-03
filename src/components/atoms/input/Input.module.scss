@@ -6,6 +6,11 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 27px;
-    text-align: center;
-    max-width: min-content;
+    text-align: left;
+    padding: 10px 15px;
+    background: var(--text-white);
+    color: var(--text-black);
+    outline-color: var(--primary);
+    outline-offset: 0;
+    outline-width: 1px;
 }

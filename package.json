@@ -7,20 +7,29 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "npx bddgen && npx playwright test",
+    "test:watch": "npx bddgen && npx playwright test --ui"
   },
   "dependencies": {
+    "@cucumber/react-components": "^22.3.0",
+    "@reduxjs/toolkit": "^2.5.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.7",
     "classnames": "^2.5.1",
-    "mobx": "^6.13.5",
-    "mobx-react-lite": "^4.0.7",
+    "firebase": "^11.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.1"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.0.1",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
     "@eslint/js": "^9.11.1",
+    "@testing-library/react": "^16.2.0",
+    "@types/node": "^22.10.10",
     "@types/react": "^18.3.10",
     "@types/react-css-modules": "^4.6.8",
     "@types/react-dom": "^18.3.0",
@@ -29,6 +38,9 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
+    "playwright": "^1.50.0",
+    "playwright-bdd": "^8.1.0",
+    "react-scripts": "^5.0.1",
     "sass-embedded": "^1.81.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
