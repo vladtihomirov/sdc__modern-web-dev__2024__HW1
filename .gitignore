@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .features-gen
+test-results/
+test-results.xml
+cucumber-report
