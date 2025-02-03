@@ -22,7 +22,7 @@ export const OrderForm = () => {
 
   return orderItems.length ? (
     <div className={styles.orderForm}>
-      {orderItems.map((item, index) => <OrderItemCard item={item} key={index}/>)}
+      {orderItems.map((item, index) => <OrderItemCard cartItem={item} key={index}/>)}
       <div className={styles.orderForm__street}>
         <label>Street</label>
         <Input value={street} onChange={(e) => dispatch(streetChange(e.target.value))}/>

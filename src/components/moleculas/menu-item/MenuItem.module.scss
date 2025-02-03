@@ -52,7 +52,7 @@
             font-size: 16px;
             font-weight: 400;
             text-align: left;
-            color: var(--text-secondaty);
+            color: var(--text-secondary);
             line-height: var(--line-height);
             height: calc(var(--line-height) * 2);
             width: 100%;
@@ -70,8 +70,19 @@
             justify-content: flex-start;
             width: 100%;
 
-            &__input {
-                width: 60px;
+            &__buttons {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                justify-content: flex-start;
+
+                &__label {
+                    width: 50px;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    text-align: center;
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ export const CartButton = () => {
   return (
     <Link className={styles.cartButton} to={EPages.ORDER} onClick={() => navigate(EPages.ORDER)}>
       <img src={cartIcon} alt={'Cart icon'} height={17} width={25}/>
-      <div className={styles.cartButton__badge}>{itemCount}</div>
+      <div className={`cart-button-number ${styles.cartButton__badge}`}>{itemCount}</div>
     </Link>
   );
 };

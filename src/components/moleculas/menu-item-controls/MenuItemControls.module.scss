@@ -1,0 +1,15 @@
+
+.menuItemControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__label {
+    width: 50px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+  }
+}

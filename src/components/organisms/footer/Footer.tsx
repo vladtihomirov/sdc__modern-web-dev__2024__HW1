@@ -61,6 +61,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      <div className={style.footer__background}></div>
     </div>
   )
 };

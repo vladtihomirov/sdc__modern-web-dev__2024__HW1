@@ -1,6 +1,6 @@
 :root {
     --text-primary: #28224B;
-    --text-secondaty: #546285;
+    --text-secondary: #546285;
     --text-white: #FFFFFF;
     --text-black: #222222;
     --text-gray: #e4e4e4;
@@ -20,24 +20,20 @@
     --red: #d53a3a;
 
     .theme-dark {
-        --text-primary: #e4e4e4;         /* Lighter text for dark background */
-        --text-secondary: #b3b3b3;       /* Slightly lighter secondary text */
-        --text-white: #111111;           /* Darker text (formerly white) */
-        --text-black: #f5f5f5;           /* Lighter text (formerly black) */
-        --text-gray: #888888;            /* Lighter grey text */
-        --text-dark-black: #08090A;      /* Keeping dark black for accents */
-
-        --primary: #4f64d8;              /* Lighter, slightly muted primary */
-        --primary-hover: #394bb5;        /* Adjusted hover to lighter tones */
-        --primary-active: #233288;       /* Adjusted active to darker tones */
-
-        --background-white: #08090A;     /* Dark background */
-        --background-primary-light: #222222;  /* Darker primary light background */
-
-        --border: 1px solid #08090A33;   /* Semi-transparent white borders */
-        --border-hover: 1px solid #08090A; /* Lighter border on hover */
-        --border-secondary: 1px solid #35B8BE26; /* Keeping the secondary colour for borders */
-
-        --red: #d53a3a;                  /* Red remains the same */
+        --text-primary: #e4e4e4;
+        --text-secondary: #7f838d;
+        --text-white: #111111;
+        --text-black: #f5f5f5;
+        --text-gray: #888888;
+        --text-dark-black: #ffffff;
+        --primary: #35B8BE;
+        --primary-hover: #309ea3;
+        --primary-active: #257c81;
+        --background-white: #303030;
+        --background-primary-light: #222222;
+        --border: 1px solid #08090A33;
+        --border-hover: 1px solid #4f4f4f;
+        --border-secondary: 1px solid #35B8BE26;
+        --red: #d53a3a;
     }
 }
